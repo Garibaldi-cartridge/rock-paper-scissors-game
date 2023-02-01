@@ -10,37 +10,54 @@ function getComputerChoice() {
 //this is applied to the gameChoices array.
     return gameChoices[Math.floor(Math.random() * gameChoices.length)];
 }
+let roundNumber = 1;
+let playerWins = 0;
+let computerWins = 0;
 
 function playRound(playerSelection, computerSelection) {
+
+    prompt('Rock Paper or Scissors?');
+
     if (playerSelection === computerSelection) {
-        return 'You Draw!';
+        alert('You Draw!');
     }
     else if (playerSelection==='Rock'&&computerSelection==='Paper') {
-        return 'You Lose! Paper beats Rock!';
+        alert ('You Lose! Paper beats Rock!');
+        computerWins ++;
     }
     else if (playerSelection==='Rock'&&computerSelection==='Scissors') {
-        return 'You Win! Rock beats Scissors!';
+        alert ('You Win! Rock beats Scissors!')
+        playerWins ++;
     }
     else if (playerSelection==='Paper'&&computerSelection==='Scissors') {
-        return 'You Lose! Scissors beats paper!';
+        alert ('You Lose! Scissors beats paper!');
+        computerWins ++;
     }
     else if (playerSelection==='Paper'&&computerSelection==='Rock') {
-        return 'You Win! Paper beats Rock!';
+        alert ('You Win! Paper beats Rock!');
+        playerWins ++;
     }
     else if (playerSelection==='Scissors'&&computerSelection==='Rock') {
-        return 'You Lose! Rock beats Scissors!';
+        alert ('You Lose! Rock beats Scissors!');
+        computerWins ++;
     }
     else if (playerSelection==='Scissors'&&computerSelection==='Paper') {
-        return 'You Win! Scissors beats Paper!';
+        alert ('You Win! Scissors beats Paper!');
+        playerWins ++;
     }
+    roundNumber ++ ; 
+    (`Current score is Player: ${playerWins} Computer: ${computerWins}`);
 }
+const roundCounter = 0;
 
 function game() {
-    for (let i=0; i<5; i++){
-
+    for (let i=0; i<5; i++) {
+    playRound(playerSelection, getComputerChoice());
     }
 }
+
 
 const playerSelection = "Rock";
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+console.log(game());
+
