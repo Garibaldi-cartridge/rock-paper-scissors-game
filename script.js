@@ -16,7 +16,7 @@ let computerWins = 0;
 
 function playRound(playerSelection, computerSelection) {
 
-    prompt('Rock Paper or Scissors?');
+    
 
     if (playerSelection === computerSelection) {
         alert('You Draw!');
@@ -52,12 +52,20 @@ const roundCounter = 0;
 
 function game() {
     for (let i=0; i<5; i++) {
+    let playerSelection = prompt('Rock Paper or Scissors?');
     playRound(playerSelection, getComputerChoice());
     }
-}
+    if (playerWins>computerWins) {
+    alert (`You Win! Player: ${playerWins} Computer: ${computerWins}`);
+    }
+    else if (computerWins>playerWins) {
+        alert (`You Lose! Player: ${playerWins} Computer: ${computerWins}`);
+    }
+    else if (computerWins===playerWins) {
+        alert (`It's a Draw! Player: ${playerWins} Computer: ${computerWins}`);
+    }
+    }
 
-
-const playerSelection = "Rock";
 const computerSelection = getComputerChoice();
 console.log(game());
 
